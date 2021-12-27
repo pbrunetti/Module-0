@@ -13,35 +13,41 @@ import math
 def mul(x, y):
     ":math:`f(x, y) = x * y`"
     # TODO: Implement for Task 0.1.
+    return ( math.prod([x,y]))
     raise NotImplementedError('Need to implement for Task 0.1')
 
 
 def id(x):
     ":math:`f(x) = x`"
     # TODO: Implement for Task 0.1.
+    return(x)
     raise NotImplementedError('Need to implement for Task 0.1')
 
 
 def add(x, y):
     ":math:`f(x, y) = x + y`"
     # TODO: Implement for Task 0.1.
+    return (math.fsum([x,y]))
     raise NotImplementedError('Need to implement for Task 0.1')
 
 
 def neg(x):
     ":math:`f(x) = -x`"
     # TODO: Implement for Task 0.1.
+    return math.prod([-1,x])
     raise NotImplementedError('Need to implement for Task 0.1')
 
 
 def lt(x, y):
     ":math:`f(x) =` 1.0 if x is less than y else 0.0"
     # TODO: Implement for Task 0.1.
+    return (y - x > 0)
     raise NotImplementedError('Need to implement for Task 0.1')
 
 
 def eq(x, y):
     ":math:`f(x) =` 1.0 if x is equal to y else 0.0"
+    return (y-x == 0)
     # TODO: Implement for Task 0.1.
     raise NotImplementedError('Need to implement for Task 0.1')
 
@@ -49,17 +55,22 @@ def eq(x, y):
 def max(x, y):
     ":math:`f(x) =` x if x is greater than y else y"
     # TODO: Implement for Task 0.1.
+    if (x > y):
+        return x
+    else:
+        return y
     raise NotImplementedError('Need to implement for Task 0.1')
 
 
 def is_close(x, y):
     ":math:`f(x) = |x - y| < 1e-2` "
+    return (math.isclose(x, y, abs_tol=0.002))
     # TODO: Implement for Task 0.1.
     raise NotImplementedError('Need to implement for Task 0.1')
 
 
 def sigmoid(x):
-    r"""
+    """
     :math:`f(x) =  \frac{1.0}{(1.0 + e^{-x})}`
 
     (See `<https://en.wikipedia.org/wiki/Sigmoid_function>`_ .)
@@ -76,6 +87,11 @@ def sigmoid(x):
     Returns:
         float : sigmoid value
     """
+    temp = math.fsum(1,exp(neg(x)))
+    if (x >= 0):
+        return math.pow(temp,-1)
+    else:
+        return (math.prod([math.exp(x), math.pow(temp,-1) ] ))
     # TODO: Implement for Task 0.1.
     raise NotImplementedError('Need to implement for Task 0.1')
 
